@@ -1,5 +1,9 @@
 import streamlit as st
 import openai
+import os
+
+# Configure your OpenAI API key securely through environment variable
+openai.api_key = os.getenv("KEY_ALPHA")
 
 # Configure your OpenAI API key
 client = OpenAI(api_key= ${{ secrets.KEY_ALPHA }})
