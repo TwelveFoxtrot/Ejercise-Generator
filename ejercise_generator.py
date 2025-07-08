@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Configure your OpenAI API key
-client = OpenAI(api_key='Key_apha')
+client = OpenAI(api_key= ${{ secrets.KEY_ALPHA }})
 
 # Streamlit UI
 st.title("AI-powered ESL Exercise Generator")
