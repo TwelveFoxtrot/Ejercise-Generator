@@ -5,12 +5,15 @@ import os
 # Initialize the OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "KEY_ALPHA"))
 
+# Streamlit UI
 st.title("AI-powered ESL Exercise Generator")
 
+# Selectors for the exercise parameters
 level = st.selectbox("Choose English Level", ["A1", "A2", "B1", "B2", "C1", "C2"])
 topic = st.text_input("Topic", "Travel")
 exercise_type = st.selectbox("Exercise Type", ["Vocabulary", "Grammar", "Speaking", "Listening comprehension", "Reading comprehension", "Writing"])
 
+# Button to generate the exercise
 if st.button("Generate Exercise"):
     with st.spinner('Generating your exercise...'):
         prompt = (
@@ -29,5 +32,6 @@ if st.button("Generate Exercise"):
         )
 
         exercise = response.choices[0].message.content
+
         st.markdown("### Generated Exercise")
         st.write(exercise)
