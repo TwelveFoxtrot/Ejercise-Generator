@@ -1,9 +1,10 @@
 import streamlit as st
 from openai import OpenAI
+import openai  # for exception handling
 import os
 
 # Initialize the OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "KEY_ALPHA"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "your-api-key-here"))
 
 # Streamlit UI
 st.title("AI-powered ESL Exercise Generator")
@@ -26,12 +27,15 @@ if st.button("Generate Exercise"):
             f"Provide the exercise content first, followed by an answer key or model solution."
         )
 
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}]
-        )
-
-        exercise = response.choices[0].message.content
-
-        st.markdown("### Generated Exercise")
-        st.write(exercise)
+        try:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}]
+            )
+            exercise = response.choices[0].message.content
+            st.markdown("### Generated Exercise")
+            st.write(exercise)
+        except openai.OpenAIError as e:
+            st.error(f"OpenAI API Error: {str(e)}")
+        except Exception as e:
+            st.error(f"Unexpected error: {str(e)}")
