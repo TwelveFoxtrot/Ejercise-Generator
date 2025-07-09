@@ -3,6 +3,11 @@ from openai import OpenAI
 import openai  # for exception handling
 import os
 
+
+git add start.sh
+git commit -m "Add start script for Render"
+git push
+
 # Initialize the OpenAI client
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
