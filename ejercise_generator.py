@@ -24,9 +24,9 @@ if st.button("Generate Exercise"):
             f"Level: {level}\n"
             f"Topic: {topic}\n"
             f"Exercise Type: {exercise_type}\n"
-            f"Use spaces and tabulations to separate the content of the exercise so its easy to read and undestand
+            f"Use spaces and tabulations to separate the content of the exercise so its easy to read and undestand.\n"
             f"Task Instructions: Clearly describe what students need to do.\n\n"
-            f"Provide the exercise content first, followed by an answer key or model solution. the solution has to be separaded quite a bit from the exercise"
+            f"Provide the exercise content first, followed by an answer key or model solution. the solution has to be separaded quite a bit from the exercise.\n"
         )
 
         try:
