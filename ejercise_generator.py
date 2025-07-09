@@ -8,7 +8,7 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 # Streamlit UI
-st.title("AI-powered ESL Exercise Generator")
+st.title("FLYNT ESL Exercise Generator")
 
 # Selectors for the exercise parameters
 level = st.selectbox("Choose English Level", ["A1", "A2", "B1", "B2", "C1", "C2"])
@@ -24,8 +24,9 @@ if st.button("Generate Exercise"):
             f"Level: {level}\n"
             f"Topic: {topic}\n"
             f"Exercise Type: {exercise_type}\n"
+            f"Use spaces and tabulations to separate the content of the exercise so its easy to read and undestand
             f"Task Instructions: Clearly describe what students need to do.\n\n"
-            f"Provide the exercise content first, followed by an answer key or model solution."
+            f"Provide the exercise content first, followed by an answer key or model solution. the solution has to be separaded quite a bit from the exercise"
         )
 
         try:
