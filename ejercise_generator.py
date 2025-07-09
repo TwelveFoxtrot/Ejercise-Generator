@@ -26,7 +26,7 @@ if st.button("Generate Exercise"):
             f"Provide the exercise content first, followed by an answer key or model solution."
         )
 
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}]
         )
