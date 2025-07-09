@@ -7,7 +7,7 @@ openai.KEY_ALPHA = os.getenv("KEY_ALPHA")
 
 
 # Configure your OpenAI API key
-client = OpenAI(api_key= openai.KEY_ALPHA )
+client = OpenAI( KEY_ALPHA = openai.KEY_ALPHA )
 
 # Streamlit UI
 st.title("AI-powered ESL Exercise Generator")
