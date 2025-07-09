@@ -24,9 +24,12 @@ if st.button("Generate Exercise"):
             f"Level: {level}\n"
             f"Topic: {topic}\n"
             f"Exercise Type: {exercise_type}\n"
-            f"Use spaces and tabulations to separate the content of the exercise so its easy to read and undestand.\n"
             f"Task Instructions: Clearly describe what students need to do.\n\n"
             f"Provide the exercise content first, followed by an answer key or model solution. the solution has to be separaded quite a bit from the exercise.\n"
+            f"Provide the exercise content using clear formatting:\n"
+            f"- Use underscores (____) or [   ] for blank spaces\n"
+            f"- Use Markdown tables for structured formats like matching or multiple choice\n"
+            f"- Separate the answer key clearly at the end\n"
         )
 
         try:
