@@ -1,19 +1,16 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 import os
 
-# Configure your OpenAI API key securely through environment variable
-openai.KEY_ALPHA = os.getenv("KEY_ALPHA")
+# Initialize the OpenAI client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "KEY_ALPHA"))
 
-# Streamlit UI
 st.title("AI-powered ESL Exercise Generator")
 
-# Selectors for the exercise parameters
 level = st.selectbox("Choose English Level", ["A1", "A2", "B1", "B2", "C1", "C2"])
 topic = st.text_input("Topic", "Travel")
 exercise_type = st.selectbox("Exercise Type", ["Vocabulary", "Grammar", "Speaking", "Listening comprehension", "Reading comprehension", "Writing"])
 
-# Button to generate the exercise
 if st.button("Generate Exercise"):
     with st.spinner('Generating your exercise...'):
         prompt = (
@@ -26,12 +23,11 @@ if st.button("Generate Exercise"):
             f"Provide the exercise content first, followed by an answer key or model solution."
         )
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}]
         )
 
         exercise = response.choices[0].message.content
-
         st.markdown("### Generated Exercise")
         st.write(exercise)
