@@ -4,7 +4,8 @@ import openai  # for exception handling
 import os
 
 # Initialize the OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "KEY_ALPHA"))
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
 
 # Streamlit UI
 st.title("AI-powered ESL Exercise Generator")
